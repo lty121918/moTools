@@ -2,7 +2,7 @@
     // 插件名称
     "name": "moTools",
     // 插件的描述
-    "description": "Base Level Extension",
+    "description": "上班摸鱼看小说",
     // 插件的版本
     "version": "1.0",
     // 配置插件程序的版本号，主流版本是2，最新是3
@@ -38,18 +38,6 @@
             // 代码注入的时间，可选值： "document_start", "document_end", or "document_idle"，最后一个表示页面空闲时，默认document_idle
             "run_at": "document_start"
         }
-        // 这里仅仅是为了演示content-script可以配置多个规则
-        // {
-        //     "matches": [
-        //         "*://*/*.png",
-        //         "*://*/*.jpg",
-        //         "*://*/*.gif",
-        //         "*://*/*.bmp"
-        //     ],
-        //     "js": [
-        //         "js/show-image-content-size.js"
-        //     ]
-        // }
     ],
     // 权限申请
     "permissions": [
@@ -62,22 +50,7 @@
         "http://*/*", // 可以通过executeScript或者insertCSS访问的网站
         "https://*/*" // 可以通过executeScript或者insertCSS访问的网站
     ],
-    // 普通页面能够直接访问的插件资源列表，如果不设置是无法直接访问的
-    // "web_accessible_resources": [
-    //     "js/inject.js"
-    // ],
-    // 插件主页，这个很重要，不要浪费了这个免费广告位
     "homepage_url": "https://www.baidu.com",
-    // 新增命令
-    // "commands": {
-    //     "_execute_browser_action": {
-    //         "suggested_key": {
-    //             "default": "Ctrl+Shift+F",
-    //             "mac": "MacCtrl+Shift+F"
-    //         },
-    //         "description": "Opens popup.html"
-    //     }
-    // },
     "background": {
         "page": "background.html",
         // "scripts": [
