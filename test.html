@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        string = '12345第一章6第二章'
+        let reg = /[\u7b2c][[\u4e00-\u9fa5]{1,5}[\u7ae0]/g
+        // string.replace(reg, "e");
+        console.log(string);
+      
+        let catalogueList = string.match(reg)
+        console.log(catalogueList);
+        console.log(string.replace(reg, replacer));
+        ////
+        let res=''
+        function replacer(match, p1) {
+            // p1 is nondigits, p2 digits, and p3 non-alphanumerics
+            console.log(match, 99);
+            console.log(p1, 999);
+            for (let i = 0; i< catalogueList.length; i++) {
+              console.log(p1,catalogueList[i]);
+               
+            }
+            return `<span id=${p1}>${match}</span>`
+        }
+    </script>
+</body>
+
+</html>
