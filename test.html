@@ -6,31 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
 </head>
 
 <body>
+    <a href="#" onclick="jump">sfsdg </a>
     <script>
-        string = '12345第一章6第二章发静安寺附近按附件发第三章发顺丰'
-        let reg = /[\u7b2c][[\u4e00-\u9fa5]{1,5}[\u7ae0]/g
-        console.log(string);
-        let catalogueList = ''
-        // let catalogueList = string.match(reg)
-        // console.log(catalogueList,'匹配出来的章节目录');
-        console.log(string.replace(reg, replacer));
-        ////
-        let res = ''
-        function replacer(match, p1) {
-            // p1 is nondigits, p2 digits, and p3 non-alphanumerics
-            console.log(match, 99);
-            catalogueList += `<a href="#${p1}">${match}</a>`
-            console.log(p1, 999);
-            console.log(catalogueList);
-            // for (let i = 0; i< catalogueList.length; i++) {
-            //   console.log(p1,catalogueList[i]);
-
-            // }
-            return `<span id=${p1}>${match}</span>`
-        }
+       function jump(){
+        console.log(111);
+        alert('jump');
+       }
+       document.getElementById("button").onclick = function() {
+ // 设置在此处单击#button时要发生的事件
+};
     </script>
 </body>
 

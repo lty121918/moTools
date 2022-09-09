@@ -25,7 +25,16 @@ chrome.runtime.onMessage.addListener(function (request, sender) {
   const catalogue = document.createElement("div");
   catalogue.setAttribute("class", "catalogue");
   catalogue.innerHTML = catalogueList;
-
+  // 事件委托具体实现
+  catalogue.onclick = function (event) {
+    event = event || window.event;
+    var target = event.target;
+    // 获取目标元素
+    console.log(target, 111);
+    if (target.nodeName == "A") {
+      alert(target.innerHTML);
+    }
+  };
   body.appendChild(moContent);
   moContent.appendChild(catalogue);
   moContent.appendChild(infoContent);
@@ -34,12 +43,16 @@ chrome.runtime.onMessage.addListener(function (request, sender) {
   // 点击目录按钮显示目录
   document
     .getElementById("catalogueButton")
-    .addEventListener("click", clickCatalogueButton, false);
-  function clickCatalogueButton() {
-    catalogue.style = "display:flex";
-  }
+    .addEventListener("click", function () {
+      if (catalogue.style.display === "none") {
+        catalogue.style = "display:flex";
+      } else {
+        catalogue.style = "display:none";
+      }
+    });
+
   console.time("answer time");
-  drag(moContent);
+  //   drag(moContent);
   console.timeEnd("answer time");
   // }, 1000);
 });
@@ -50,15 +63,16 @@ chrome.runtime.onMessage.addListener(function (request, sender) {
 function format(text) {
   let resultText = "";
   let catalogueList = "";
-  let reg = /[\u7b2c][[\u4e00-\u9fa5]{1,5}[\u7ae0]/g;
+  let reg = /[\u7b2c][[\u4e00-\u9fa5]{1,7}[\u7ae0]/g;
   resultText = text.replace(reg, replacer);
   function replacer(match, p1) {
     catalogueList += `<a href="#${p1}">${match}</a>`;
     console.log(catalogueList);
-    return `<span id=${p1}>${match}</span><br/>`;
+    return `<span id=${p1} >${match}</span><br/>`;
   }
   return [catalogueList, resultText];
 }
+
 /**
  *  @function 小说盒子拖拽
  */
